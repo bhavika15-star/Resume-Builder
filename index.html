@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Resume-Generator</title>
+</head>
+<body>
+    <div class="container" id="cv-form">
+        <h1 class="text-center my-2">Resume Generator</h1>
+        <p class="text-center">By Bhavika</p>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Personal Information</h3>
+            <div class="form-group ">
+                <label for="nameField">Your Name</label>
+                <input type="text" id="nameField" placeholder="Your Name" class="form-control">
+            </div>
+            <div class="form-group mt-2">
+                <label for="contactField">Your Contact Number</label>
+                <input type="text" id="contactField" placeholder="Your Contact Number" class="form-control">
+            </div>
+            <div class="form-group mt-2">
+                <label for="emailField">Your Email Id</label>
+                <input type="text" id="emailField" placeholder="Your Email-Id" class="form-control">
+            </div>
+            <div class="form-group mt-2">
+                <label for="addressField">Your Address</label>
+                <textarea id="addressField" placeholder="Your Address" class="form-control" rows="5"></textarea>
+            </div>
+            <div class="form-group mt-3">
+                <label for="">Select your picture</label>
+                <input id="imgField" type="file" class="form-control">
+            </div>
+            <p class="text-secondary my-3">Important Links</p>
+            <div class="form-group">
+                <label for="fbField">Your HackerRank Id</label>
+                <input  type="text" id="fbField" placeholder="Your HackerRank-Id" class="form-control">
+            </div>
+            <div class="form-group mt-2">
+                <label for="linkedinField">Your LinkedIn Id</label>
+                <input type="text" id="linkedinField" placeholder="Your LinkedIn-Id" class="form-control">
+            </div>
+            <div class="form-group mt-2">
+                <label for="githubField">Your GitHub Id</label>
+                <input type="text" id="githubField" placeholder="Your GitHub-Id" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-6">
+           <h3>Education Background</h3>
+           <div class="form-group">
+            <label for="">Objective</label>
+            <textarea placeholder="Enter about yourself" class="form-control" id="objectiveField"></textarea>
+           </div>
+           <div class="form-group mt-2" id="we" >
+            <label for="">Work-Experience</label>
+            <textarea placeholder="Enter here" class="form-control weField"></textarea>
+            <div class="container text-center mt-3" id="weAddButton">
+                <button onclick="addNewWEField()" class="btn btn-primary btn-sm">Add Field</button>
+            </div>
+           </div>
+           <div class="form-group mt-2" id="aq">
+            <label for="">Academic-Qualification</label>
+            <textarea placeholder="Enter here" class="form-control eqField"></textarea>
+            <div class="container text-center mt-3" id="aqAddButton">
+                <button onclick="addNewAQField()" class="btn btn-primary btn-sm" >Add Field</button>
+            </div>
+           </div>
+            <div class="form-group mt-2" id="sk">
+                <label for="">Skills</label>
+                <textarea placeholder="Enter here" class="form-control skField" rows="1"></textarea>
+                <div class="container text-center mt-3" id="skAddButton" >
+                    <button onclick="addNewSKField()" class="btn btn-primary btn-sm">Add Field</button>
+                </div>
+            </div>
+                <div class="form-group mt-2" id="tr">
+                    <label for="">Training</label>
+                    <textarea placeholder="Enter here" class="form-control trField"></textarea>
+                    <div class="container text-center mt-3" id="trAddButton">
+                        <button onclick="addNewTRField()" class="btn btn-primary btn-sm">Add Field</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    <div class="container text-center mt-3 mb-4">
+        <button onclick="generateCV()" class="btn btn-dark btn-lg">Generate-Resume</button>
+    </div>
+</div>
+
+<!--cv template-->
+<div class="container" id="cv-template">
+    <div class="row">
+        <div class="col-md-4 text-center py-5 background">
+            <!--First col-->
+            <img id="imgTemplate" src="profile_picture.png" alt="" class="img-fluid myimg">
+        <div class="container">
+            <p id="nameT1">Bhavika Chauhan</p>
+            <p id="contactT">6378084414</p>
+            <p id="emailT">bhavikach99@gmail.com</p>
+            <p id="addressT">15-A, Ratan-Villa, Sector-2, Ajmer, Raj.</p>
+            <hr />
+            <p id="hackerT"><a href="#1">https://www.hackerrank.com/2018pcecsbhavik1</a></p>
+            <p id="linkT"><a href="#1">https://www.linkedin.com/in/bhavika-chauhan-905a33191/</a></p>
+            <p id="gitT"><a href="#1">https://github.com/bhavika15-star</a></p> 
+        </div>
+    </div>
+        <div class="col-md-8 py-5">
+            <!--Second col-->
+            <h1 id="nameT2" class="text-center" style="font-weight: 980;">Bhavika Chauhan</h1>
+            <!--objective card-->
+            <div class="card mt-4">
+                <div class="card-header background">
+                 <h3>Objective</h3>
+                </div>
+                <div class="card-body">
+                    <p id="objectiveT">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat nobis maxime illum quo, eos iste velit repellendus voluptatem et dicta minus commodi nostrum. Illo, molestias odio magni fuga aut nisi porro asperiores explicabo, cumque doloribus iusto. Repellat molestiae, veniam architecto, laudantium atque praesentium magni modi hic quod itaque, perferendis nulla?</p>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header background">
+                 <h3>Work-Experience</h3>
+                </div>
+                <div class="card-body">
+                <ul id="weT">
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                </ul>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header background">
+                 <h3>Academic-Qualification</h3>
+                </div>
+                <div class="card-body">
+                <ul id="aqT">
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                    <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                </ul>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header background">
+                 <h3>Skills</h3>
+                </div>
+                <div class="card-body">
+                    <ul id="sT">
+                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mt-4">
+                <div class="card-header background">
+                 <h3>Training</h3>
+                </div>
+                <div class="card-body">
+                    <ul id="tT">
+                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                        <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae, architecto!</li>
+                    </ul> 
+                </div>
+            </div>
+            <div class="container mt-3 text-center">
+                <button class="btn background btn-lg" onclick="printCV()">Print Resume</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>    
+<script src="style.js"></script>
+</body>
+</html>
